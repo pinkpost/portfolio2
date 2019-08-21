@@ -514,6 +514,7 @@ iframe{
   .global-nav{
     float: none;
     position: fixed;
+    width:100%;
     background-color: #F25C78;
     z-index: 3;
     margin-top: 40px;
