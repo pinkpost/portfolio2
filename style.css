@@ -1,0 +1,569 @@
+@charset "utf-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #cccccc;
+  font-size: 15px;
+  line-height: 2;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+img {
+  vertical-align:bottom;
+  max-width: 100%
+
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#loading{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translateY(-50%) translateX(-50%);
+
+  /* margin: 0 auto; */
+}
+#loader-bg {
+position:fixed;
+width: 100%;
+height: 100%;
+top: 0px;
+left: 0px;
+
+background: #000;
+z-index: 5;
+}
+.glitch {/*基本設定*/
+  color: white;
+  font-size: 50px;
+  position: relative;
+  /* width: 400px; */
+  margin: 0 auto;
+}
+
+@keyframes noise-anim {/*細かい動きを設定してノイズが走っているかのように動かす*/
+  0% {
+    clip: rect(77px, 9999px, 6px, 0);
+  }
+  5% {
+    clip: rect(65px, 9999px, 70px, 0);
+  }
+  10% {
+    clip: rect(82px, 9999px, 82px, 0);
+  }
+  15% {
+    clip: rect(32px, 9999px, 35px, 0);
+  }
+  20% {
+    clip: rect(31px, 9999px, 49px, 0);
+  }
+  25% {
+    clip: rect(18px, 9999px, 46px, 0);
+  }
+  30% {
+    clip: rect(94px, 9999px, 64px, 0);
+  }
+  35% {
+    clip: rect(69px, 9999px, 31px, 0);
+  }
+  40% {
+    clip: rect(6px, 9999px, 72px, 0);
+  }
+  45% {
+    clip: rect(25px, 9999px, 35px, 0);
+  }
+  50% {
+    clip: rect(82px, 9999px, 26px, 0);
+  }
+  55% {
+    clip: rect(7px, 9999px, 92px, 0);
+  }
+  60% {
+    clip: rect(54px, 9999px, 30px, 0);
+  }
+  65% {
+    clip: rect(86px, 9999px, 90px, 0);
+  }
+  70% {
+    clip: rect(38px, 9999px, 65px, 0);
+  }
+  75% {
+    clip: rect(41px, 9999px, 66px, 0);
+  }
+  80% {
+    clip: rect(31px, 9999px, 37px, 0);
+  }
+  85% {
+    clip: rect(8px, 9999px, 12px, 0);
+  }
+  90% {
+    clip: rect(50px, 9999px, 69px, 0);
+  }
+  95% {
+    clip: rect(7px, 9999px, 42px, 0);
+  }
+  100% {
+    clip: rect(14px, 9999px, 57px, 0);
+  }
+}
+.glitch:after {/*疑似要素を加えてカスタムデータ属性の値を表示、重ねる*/
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim-2 {/*ノイズ用アニメーションその2*/
+  0% {
+    clip: rect(18px, 9999px, 13px, 0);
+  }
+  5% {
+    clip: rect(74px, 9999px, 51px, 0);
+  }
+  10% {
+    clip: rect(33px, 9999px, 65px, 0);
+  }
+  15% {
+    clip: rect(64px, 9999px, 66px, 0);
+  }
+  20% {
+    clip: rect(75px, 9999px, 6px, 0);
+  }
+  25% {
+    clip: rect(40px, 9999px, 49px, 0);
+  }
+  30% {
+    clip: rect(71px, 9999px, 1px, 0);
+  }
+  35% {
+    clip: rect(42px, 9999px, 73px, 0);
+  }
+  40% {
+    clip: rect(92px, 9999px, 57px, 0);
+  }
+  45% {
+    clip: rect(4px, 9999px, 33px, 0);
+  }
+  50% {
+    clip: rect(4px, 9999px, 34px, 0);
+  }
+  55% {
+    clip: rect(49px, 9999px, 25px, 0);
+  }
+  60% {
+    clip: rect(24px, 9999px, 44px, 0);
+  }
+  65% {
+    clip: rect(31px, 9999px, 99px, 0);
+  }
+  70% {
+    clip: rect(54px, 9999px, 83px, 0);
+  }
+  75% {
+    clip: rect(57px, 9999px, 97px, 0);
+  }
+  80% {
+    clip: rect(3px, 9999px, 15px, 0);
+  }
+  85% {
+    clip: rect(84px, 9999px, 34px, 0);
+  }
+  90% {
+    clip: rect(100px, 9999px, 88px, 0);
+  }
+  95% {
+    clip: rect(91px, 9999px, 59px, 0);
+  }
+  100% {
+    clip: rect(10px, 9999px, 87px, 0);
+  }
+}
+.glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+}
+
+
+
+header {
+  width: 960px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.logo {
+  float: left;
+  margin-top: 20px;
+}
+
+
+.global-nav {
+  float: right;
+  margin-top: 60px;
+}
+
+.global-nav li {
+  float: left;
+  margin: 0 20px;
+  font-size: 20px;
+  list-style: none;
+  font-family: 'Luckiest Guy';
+}
+
+.global-nav li a {
+  color: #ffffff;
+}
+
+.global-nav li a:hover {
+  border-bottom: 2px solid #F25C78;
+  padding-bottom: 3px;
+  text-decoration: none;
+  color: #F25C78;
+
+}
+
+#wrap {
+  clear: both;
+  background-color: #ffffff;
+  margin-top: 220px;
+}
+
+.content {
+  width: 960px;
+  margin: 0 auto;
+}
+
+
+
+ h1 {
+  font-size: 100px;
+  line-height: 1.5;
+  color: #fff;
+  font-family: 'Luckiest Guy';
+  margin-bottom: 200px;
+  border: none;
+  border-right: 15px solid #6c63ff;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: type 3s steps(42,end);
+}
+@keyframes type{
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+  .content{
+   margin-top: 150px;
+ }
+  p{
+   font-size:  16px;
+
+ }
+ .btn a{
+   background-color: #6c63ff;
+   color: #ffffff;
+   font-size: 24px;
+   font-family: 'Luckiest Guy';
+   width:185px;
+   display:block;
+   text-align: center;
+   line-height: 50px;
+   margin-top: 20px
+   border: 3px solid #009cd3;
+   border-radius: 5px;
+
+ }
+ .btn a:hover{
+   text-decoration: none;
+   background-color: #ffffff;
+   color: #6c63ff;
+ }
+
+ footer{
+  width: 960px;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 150 auto 0 auto;
+  background-color: transparent;
+}
+#index{
+  background-image: url(../images/bg-index.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+#index #wrap{
+  background-color: transparent;
+  margin-top:0;
+  padding: 0;
+}
+
+#about{
+  background-color:#333;
+  color: #fff;
+}
+h2{
+  font-family: 'Luckiest Guy';
+  padding-top: 100px;
+  font-size: 70px;
+}
+ h3{
+  font-family: 'Luckiest Guy';
+  font-size: 25px;
+}
+.about-content{
+  padding: 100px 0;
+  display: flex;
+}
+
+.about-img img{
+  max-width: 600px;
+}
+.about-text{
+  text-align: center;
+  max-width: 500px;
+  color: #fff;
+}
+.about-text li{
+  background:linear-gradient(transparent 70%, #6c63ff 0%);
+}
+
+#work{
+  background-color:#fff;
+  color: #333;
+}
+
+.work-content{
+  display: flex;
+  justify-content:center;
+}
+.work-item {
+
+  margin-bottom: 100px;
+  margin-right: 50px;
+}
+.work-item span{
+  background:linear-gradient(transparent 70%, #6c63ff 0%);
+  font-weight: bold;
+}
+.work-item p{
+  color: #333;
+
+}
+.work-item img{
+  max-height: 230px;
+}
+
+
+#portfolio{
+  background-color:#333;
+}
+#portfolio h2,#portfolio p{
+  color: #fff;
+}
+
+
+
+/* box css */
+.box-content{
+  display: flex;
+  justify-content: space-between;
+}
+.box{
+  border: 1.5px solid;
+  width: 300px;
+  height: 360px;
+  margin-bottom: 15px;
+  background-color: #222;
+  position: relative;
+}
+.box h2{
+  padding: 0;
+  font-size: 27px;
+}
+.box h3{
+  padding: 0;
+  font-size: 16px;
+}
+.box img{
+  width: 300px;
+  height: 200px;
+}
+.txt-area{
+  padding:12.8px 8px;
+}
+.more{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1em 1.5em;
+}
+/* box color */
+.box-p{
+  border-color:#6c63ff;
+}
+.box-p h3{
+  color: #6c63ff;
+}
+.box-p a:hover{
+  color: #6c63ff;
+}
+.box-p .more{
+  color: #6c63ff;
+}
+/* g */
+.box-g{
+  border-color:#96ea0e;
+}
+.box-g h3{
+  color:#96ea0e;
+}
+.box-g a:hover{
+  color: #96ea0e;
+}
+.box-g .more{
+  color:#96ea0e;
+}
+/* o */
+.box-o{
+  border-color:#F25C78;
+}
+.box-o h3{
+  color:#F25C78;
+}
+.box-o a:hover{
+  color: #F25C78;
+}
+.box-o .more{
+  color:#F25C78;
+}
+
+#contact{
+  background-color: #fff;
+}
+iframe{
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+@media screen and (max-width:600px) {
+  /*画面サイズ600px以下*/
+
+  body{
+    font-size: 3.5vw;
+  }
+  h1{
+    font-size: 9.2vw;
+  }
+  h2 {
+    font-size: 6vw;
+    padding-top: 50px;
+  }
+  h3{
+    font-size: 5vw;
+  }
+  header{
+    width:auto;
+    margin: 0.5%;
+  }
+  .logo{
+    display: none;
+    float:none;
+    margin-top:60px;
+    text-align: center;
+  }
+  .global-nav{
+    float: none;
+    position: fixed;
+    background-color: #F25C78;
+    z-index: 3;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .global-nav li{
+    display: inline;
+    float: none;
+    margin: 0 8px;
+  }
+  .about-img img{
+    max-width: 100%;
+  }
+  #wrap{
+    margin-top: 40px;
+    padding: 35px 0 0;
+  }
+  .content{
+    width: 100%;
+  }
+  .main{
+    float: none;
+    width:auto;
+    margin: 0.5%;
+  }
+  .work-content{
+    display: block;
+  }
+  .work-item {
+    width: 85%;
+    margin: 0 auto;
+  }
+  h2 img{
+    max-width: 100%;
+  }
+.box{
+  margin:0 auto;
+  margin-bottom: 15px;
+}
+.box-content{
+  display: block ;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-content{
+display: block ;
+}
+
+}
